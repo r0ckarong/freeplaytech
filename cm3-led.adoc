@@ -1,0 +1,47 @@
+List of LEDs and their status on Freeplaytech CM3
+
+.Front LEDs
+[options="header",cols="4"]
+|===
+|Diode
+|Label
+|Color
+|Description
+
+|DS1
+|POWER
+|Green
+|System Powering up
+
+|DS4
+|LOW BAT
+|Red
+|Low battery
+|===
+
+Error state:
+
+* DS1 + DS4 lit (Green AND Red LED in front) - System on, battery low, imminent shutdown
+
+.Back LEDs
+[options="header",cols="4"]
+|===
+|Diode
+|Label
+|Color
+|Description
+
+|DS2
+|CHARGING
+|Blue
+|Connected battery is charging
+
+|DS3
+|CHARGED
+|Green
+|Connected battery is fully charged
+|===
+
+Error state:
+
+* DS2 + DS3 lit (Green AND Blue) - Charge error, check battery, check JST connector wiring

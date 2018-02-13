@@ -1,4 +1,12 @@
+= LED Lights and Status Meaning
+
 List of LEDs and their status on Freeplaytech CM3
+
+== Introduction
+
+If the battery is connected and configured properly, DS2 (Blue) will turn on and show a blue light during the charing process. If charging the battery was successful DS2 will turn off and DS3 (Green) will be turned on.
+
+NOTE: If you see both DS2 and DS3 illuminated at the same time this indicates an error with charging or the batteries. Please check out the link:#troubleshooting[Common Problems] section.
 
 .Front LEDs
 [options="header",cols="4"]
@@ -44,4 +52,16 @@ Error state:
 
 Error state:
 
-* DS2 + DS3 lit (Green AND Blue) - Charge error, check battery, check JST connector wiring
+* DS2 + DS3 lit (Blue AND Green) - Charge error, check battery, check JST connector wiring
+
+As soon as a battery is physically connected, the board will detect it and illuminate DS2. It will also begin trying to charge the battery. If, for whatever reason, charging fails after a period of time (TBA) it will _ALSO_ illuminate DS3.
+
+[[troubleshooting]]
+== Common Problems
+
+* Correct orientation of the JST connector wires (Ridge upwards, red on the left, black on the right)
+* Solder connections between battery and connectors
+* Solder connections between batteries if soldered in parallel
+* Sufficient power output of the used (Micro-)USB charger (TBA, what is the correct voltage/current)
+
+NOTE: If you see both Blue AND Green lights on the back of your Freeplay CM3/Zero board this indicates a problem with the battery and you should go through the troubleshooting section of the build guide.

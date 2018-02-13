@@ -1,0 +1,264 @@
+= Freeplay CM3/Zero Build Instructions
+:revdate: 13.02.2018
+:version: 0.1
+
+This is a living document.  It may change at any time.
+
+[NOTE]
+====
+For feedback about the build process or this document, please contact link:feedback@freeplaytech.com[feedback@freeplaytech.com].
+
+Read this entire document before starting your build.
+
+Please see https://www.youtube.com/playlist?list=PLXHmB1p_lyoAiIQpZYJI2AeR3lxbe71sf for a list of YouTube build videos..
+====
+
+NOTE: We highly recommend having a USB OTG adapter (male micro-USB-B to female USB-A) and a mini-HDMI to HDMI adapter on hand. The USB OTG adapter is almost required.  The HDMI can really help with debugging (or playing on a TV).
+
+== Preparation
+
+Install the operating system, and test your Raspberry Pi Zero
+Before you begin the hardware portion of the install, we recommend that you install the software and boot it up on your Raspberry Pi (RPi) Zero (without the FPZ attached).  This is to be sure that you are at a known starting point.
+
+The #1 problem people have building their Freeplay Zero is using the wrong SD image or not getting it “burned” to the SD card properly (and then they get just a blank white screen when trying to boot).
+
+Use the SD image file at https://drive.google.com/drive/u/0/folders/0B3u1iTJauWTneXFTTnlPS2M4czg to prepare your SD card.  Burn the image file to your microSD card.  Eject it from your computer, and re-insert it.  Make sure that you can see the “boot” partition with files like config.txt.
+
+If you can not see these items, it is a good indication that the image “burn” failed.  The image files we provide are compressed.  Most SD imaging software will decompress them before/during the burn process.  If yours doesn't, you may need to decompress (unzip) the file prior to burning the image to your SD card.
+
+Once you are comfortable that the image is properly burned to your SD card, insert it into the RPi Zero.  Without the FPZ (or any USB devices) attached, hook your RPi Zero up to a TV via HDMI and supply power to the micro USB port of the RPi.  Let it boot up, but keep in mind that you do not need to set anything up yet.  You will not be able to control anything at this point, but it is important to know that these pieces are working before plugging them into the FPZ and modifying your shell.
+
+Note that the first boot of your SD image will run the SD partition resizing and then shut down the FPZ.  This is normal, but it may seem concerning.  Just boot it up again.
+Get your tools ready.
+The following photo is an example of what tools you may need for the rest of this build process: angle/wire cutters, phillips screwdriver, triwing screwdriver (often comes with GBA-style shell kit), hobby knife, soldering iron, solder, safety glasses, drill, and drill bits.
+
+
+
+For your (X-Acto style) hobby knife, the typical #11 blade (shown on the right) will suffice, but the #17 or #21 flat tip blades (shown on the left) can be very useful for cleaning the plastic down to the plane of the shell.
+
+
+
+
+For the X/Y holes, you may want a 1/8” or 9/64” bit to start and a 15/64” bit to drill holes for the button caps.
+
+Alternatively, you can use a step drill bit as shown here.  You may even be able to turn this by hand (with a pliers) for greater precision.
+
+
+Example Step Drill Bit Shown
+[3/16" to 1/2" Titanium Coating Step Drill Bit Unibit High Speed 2-flute 6-STEP]
+Connecting The Raspberry Pi Zero
+You will need to either solder on the included pin headers to your Pi Zero or use a hammer jig and hammer header to attach our special solderless header.  It is easiest to do this before you do the rest of the mods, so you don’t need to push on the circuitry/LCD after that is installed into the shell.
+Soldering
+Do this while the pin headers are connected to the FPZ circuit board.  That will ensure that everything is in the proper place.  You will need 2 rows of 20 pins.  Follow these steps to solder your RPi at the proper height/angle.  When done, the Pi will not be perfectly parallel to the FPZ.  It will be at a slight angle.  This is intentional.
+
+Push the included standoffs into place.  Be sure that you have the “bottom” side of the FPZ facing you as shown.
+Push the long side of the male pins into the female header of the FPZ.  Do this gently and carefully, as they are a tight fit.  Make sure they are seated all the way down so the plastic of the pin header touches the plastic of the FPZ female header.
+Place the Raspberry Pi Zero (or Zero W) onto the pins.
+Be sure that the “component” side of the RPi (with all the chips and connectors) is facing the FPZ board and that the “back” blank side of the RPi is facing you.
+Once in place, you can solder the RPi Zero onto the headers.  Make sure that the solder on each pin is not touching (aka “bridging”) any other pin.  The result should look something like the photo to the right.
+On the “top/button” side of the FPZ, snip off any protruding plastic from the standoffs you placed in step 1.
+
+
+
+
+Photo from https://learn.adafruit.com/adafruit-guide-excellent-soldering/common-problems
+Solderless Hammer Header
+Please watch this video that can be found at https://www.youtube.com/watch?v=IcZDxLKN2lo
+
+
+Plastic Shell Modification Overview
+You will need to make several modifications to the plastic GBA-style shell.  The photo below shows areas that will need to be modified or removed.  We recommend that you use a good quality wire cutter or side/angle cutter in combination with an X-Acto style hobby knife.  See the section about knife blades for recommendations.
+
+
+Remove “walls” around cartridge slot area.
+You can do the bulk of this work with a side cutter, and you can clean it up with your hobby knife.  It is best to remove these walls clear down so the plane of the shell is as smooth as possible.  To access this area, you will first need to remove a metal plate.  Keep the 2 screws for later, but you will no longer need the metal itself.
+
+
+It is best to remove these walls clear down so the plane of the shell is as smooth as possible.  If you have a flat-tip xacto blade, that can be good for this sort of shaving.
+
+Remove Plastic Where Battery Connections Lay
+This is a fairly simple mod to the plastic near the battery compartment that can be done with an angle cutter.  If you want, you can clean it up with the hobby knife after you remove the plastic.
+
+Resize the LCD opening.
+This step requires plenty of patience and “eyeballing” to get right.  Be very careful with the LCD itself.  You can use it as a guide, but never put pressure on the LCD or let it flex in any way.  Never force the LCD into place.  If you make the opening too wide, you can use some padding or glue later (to keep it from moving).
+
+Look carefully at these photos to see where the knife blade is pointing and notice which way the LCD ribbon cable is facing (to note direction).
+
+Remove the small wall close to the START/SELECT buttons.  To remove these small walls, make a cut vertically (as shown in the following photo) on either end of the wall.  Then, you can break the wall off with a pliers or shave it off with the knife.
+
+Do the same thing for the small wall on the opposite side (near the speaker).
+
+
+The entire wall on the end of the LCD closest to the speaker and A/B buttons must be removed.  Make vertical cuts with a knife or side cutters as shown.
+
+Before you continue this part of the modifications, notice that there is a very small “wall” left as shown in the green circle in the photo above.  When completing this LCD area, you will need to cut this back to make room for the LCD, but try to leave some of this standing.  If you remove it completely, the R shoulder button leaf spring will push directly on the LCD.  Also notice (above) how the speaker’s circle is cut back to make room for the LCD.  Cut it back just enough so the LCD has room to fit without having room to move.
+
+
+Cut (with knife or side cutters) any reinforcing wall that intersects (T’s off of) the wall to be removed.  This includes the circular “wall” that surrounds the speaker.
+
+The long wall should now be standing on its own.  To complete its removal, you can run your knife lengthwise where the wall meets the plane of the shell several times to weaken it enough that it can snap off or snip it down with the side cutters.  The result should look something like this.
+
+
+After removing the wall, you will need to shave down any remaining parts of the wall.  These can be seen above in white.
+
+
+With a sharp blade or a dremel tool, take off anything in this LCD area that may be raised (such as the area shown surrounded by yellow lines in the photo above).  The result should be as shown below.  Any high points that contact the LCD can put extra (non-uniform) stress on the LCD.  The chisel X-Acto blade (as shown to the right) can be help for “shaving” like this.
+
+
+
+Use the following photos as a guide showing how the LCD should properly fit once the walls are removed.  In the next photo, notice the green and yellow circles.  You may want to CAREFULLY remove any protrusions the LCD plastic may have in these (and maybe other) areas that seem to be causing fitment problems.  The yellow circle also shows how the plastic walls fit up against the LCD ribbon cable.  Snug is good, but make sure it’s not so tight that you flex the LCD panel or cause any undue stress to the ribbon or glass.
+
+
+In the photos above and below, notice how the speaker slightly fits under the LCD.  You can also notice the nub in the middle of the bottom of the LCD that was not removed (whereas the one on the top-middle was).
+
+
+Create holes for the X/Y buttons and caps.
+We believe that the Freeplay Zero looks very clean and functions quite well without X and Y buttons.  Please feel free to build your Freeplay Zero without these extra buttons.  To do that, just use your wire cutter to cut off the button shafts.  If you want X and Y buttons, keep reading this section.
+
+
+Use the included guide to locate the holes for the X/Y tactile buttons.  Please be careful to line up A and B properly with their associated buttons.  Also note that there is fair bit of wiggle room with the buttons.  Try to mark the holes in the middle of the “wiggle” if possible.
+
+Mark X and Y drill points as shown above.  I like to use a phillips style screwdriver for this, but the important part is to “cut” a small divot into the plastic (to rest your drill bit in when starting your hole).  You could also use a tiny drill bit to mark the locations.
+
+If you will not use button caps, use a 1/8” drill bit (or the closest size you have to the button shaft itself) to drill the holes.  If you will be using caps, you should drill the initial hole slightly larger than the shafts (but not as large as the caps).  We recommend 9/64” or a bit larger.  Unless things go perfectly, the shafts will be off-center compared to your hole.  The button caps can help account for this, but you need to know in which direction they are off-center.
+
+If the holes are too close to the shaft’s size, it will cause the shaft to “tip” and it may be difficult to tell which way it is tipped.  Furthermore, the buttons will not actuate properly if they are tipped, so open up the holes until you know for sure they’re not tipped.  The way to tell is to seat the PCB fully and then try to press the button.  If you hear/feel the tactile click, they they are likely actuating properly.
+
+We have noticed that if you drill increasingly large holes until the hole is the right diameter, the holes will drift each time, because the plastic of the shell is quite soft.  A drill press would be a great option if you have access to one.
+
+Work the hole area with a hobby knife until you can tell that the buttons actuate properly.  This may take several attempts to insert the PCB, check the fitment, actuate the buttons, find where things are rubbing, and then cut it out with the hobby knife.  Once the buttons seem to work properly, you might end up with holes that look something like the photo to the right.
+
+Set the button caps on top of the buttons, and use a pencil to draw a circle around them.  Keep in mind that there is a fair bit of wiggle room here, so place the buttons where you want them and hold them in place while drawing.
+
+
+Before widening the holes, make sure the “pilot” hole is centered on your pencil mark.  If it is not, use your hobby knife to center it (like in the following photos).
+
+
+Once centered, use a step bit by hand, a hobby knife by hand, a conical dremel bit, or a 15/64” drill bit to create holes for your button caps.  Note that the pencil marks will be “larger” than the caps themselves and therefore larger than the actual hole you need to create.  They should still be visible once the caps are installed.  The pencil marks should easily wipe away once you are satisfied with your holes.
+
+If your X/Y button shafts are not centered, they will sit at an angle which will not allow them to actuate properly.  You can always cut the hole to fix this, but it may be at the cost of aesthetics.
+
+
+
+
+When your build is complete, you can permanently attach the button caps.  For now, just make sure they fit well, and then leave them off to the side.
+When you are ready (later), to attach the button caps to the button shafts, use a tiny bit of superglue or other adhesive inside of the button cap.  Make sure that you don’t get superglue on the outside of the button.  Before the glue dries, actuate the buttons to be sure that they are working properly.
+
+See https://www.youtube.com/watch?v=5qwiKOBXaqs for a quick overview of this process.
+L/R Shoulder Buttons
+You will likely need to make some small modifications to allow the L and R shoulder buttons to fit and work properly.  This mod is to widen the surround so that the button itself fits fully down into the shell.  This can be done very easily with either the hobby knife or the side cutters, as perfection isn’t required.  You will also want to shave down the middle tab that touches the “back” of the button very slightly.
+
+
+
+We have also found that the shoulder buttons themselves can vary from shell to shell (or if you get alternative aftermarket colored buttons).  Sometimes the shoulders will work well until you screw the case together.  Loosening the screws a tiny bit can help.  Also, SLIGHTLY shortening the shoulder’s posts can help.  The black marks shown illustrate places that MAY need to be modified if you notice binding.  ONLY cut them if they bind.
+
+Power Button/Switch Modification
+
+Cut the “nub” from the power switch slider as shown to allow it to spring back into place.  The original GBA uses an on/off power switch, but the Freeplay Zero uses a momentary button more like the NDS.
+MicroUSB Charging Port
+You will need to make a very small modification to the back plate to accommodate charging.  You will need to cut the shell down just a little to fit the microUSB port.  (Note that the one pictured here is an old design that did not have the port centered well.)
+
+
+Front Plate Shell Assembly
+It should now be possible to assemble the front plate with the LCD, buttons, and circuit board.  Insert the buttons and the power LED pipe into the front of the shell.  Then put the silicone button pads (including the START and SELECT buttons) in place.  Connect the LCD to the FPZ board (see https://youtu.be/sch5ZW1idz4).  With the LCD connected to the main FPZ circuit board, fit the LCD into the shell.  Put the speaker in place, and fit the circuit board into place.
+
+Proper LCD Ribbon Cable Connection Seating
+
+Open the LCD socket “shoulder” latches by sliding them out like a drawer.  Insert the ribbon cable into the socket until you can barely see any of the gold contacts.  These gold “finger” contacts should be nearly 90% “inside” of the socket.  Once they are seated, close the “shoulder” latches.  Please see the yellow arrows in the pictorial above to see the direction of motion.
+
+We recommend that you place some thin foam padding between the LCD and circuit board and between the speaker and circuit board.  Use just enough to apply very slight pressure between the circuit board and LCD.  This will help keep everything in place and provide some electrical insulation.
+
+We also recommend that you clip off any protruding wiring that may come in contact with metal (such as the back of the LCD).  If any pins stick “through” the circuit board, they can cause shorts or added pressure on the LCD.
+
+It’s quite nice to have a board about the width of the LCD (something like what is shown to the left) that allows the FPZ to sit flat without resting on the d-pad or buttons.  If you place this assembly on a flat table, it will push on the buttons and make it difficult to screw together.
+
+The circuit board can be secured to the front shell with 2 or 3 screws.  If you kept the screws from the metal plate (shown to the right) that you removed earlier, they are good to use here.
+
+This can be a good time to boot up the unit (by powering it through the Pi) to be sure that the LCD is properly connected.  Do not connect batteries without first reading the “Battery Connections” section of this document.  When booting, you must hold the power switch in the ON position until you see the green LED on the front turn on.  When starting up RetroPie, the LCD will go white for about 10 seconds and then show the RetroPie logo.
+
+Battery Connections
+Do not crush or force the battery in any way!
+
+Please check and DOUBLECHECK that the battery you received is wired with the positive (red) and negative (black) as indicated on your Freeplay Zero/CM3 circuit board and as shown in the photos below.  We have seen some batteries that have the proper connector but are wired backward.  If your battery connections are backward, you can permanently “swap” the pins inside of the JST connector.
+
+
+
+The battery connectors fit snugly, which is good, but they can be difficult to remove.  It is unwise to be putting much force on the wires while pulling on them to disconnect the batteries.  To make removal easier, there are 2 “nubs” on the top of the battery’s connector that can be shaved/removed.  The connector will still have enough friction to stay seated, especially when the batteries are shut inside of the battery compartment.  We recommend this mod, otherwise the batteries can be quite difficult to disconnect.
+
+We have seen that some “clone” or “off-brand” versions of the JST connectors will fit very tightly into the receptacles.  Shaving or trimming the “fin” or the sides of the plug can help with this, as a too tight fit can make it more difficult to connect/disconnect the battery.
+
+To install flat lithium cells inside of your battery compartment, you will need to remove the “fins” as shown in the following photo.
+
+
+Make sure that the battery connectors are fully mated into the Freeplay Zero sockets.  It may seem like the battery is plugged in when it still has some room to press into the socket.  This can lead to a poor connection and intermittent supply of power.
+
+After you plug in each battery, you may want to spin the battery several times to twist the red and black wires together.  This makes routing the wires easier, and it makes the wires curl themselves up nicely.
+
+
+
+If you are using Freeplaytech “clearance” batteries, you will need to make some extra modifications as shown in the following photos.
+
+
+Volume Wheel and Headphone Area
+In many builds, the plastic around the volume wheel needs to be modified.  This seems to be very much a “fit, test, cut, repeat” process.  There are plenty of inconsistencies in both the shell and how the volume wheel lays on the circuit board.  Many times the volume wheel will rub on the shell.  If this happens, this is typically on the side, and shaving down the plastic will usually alleviate the rubbing.  It will sometimes be found on the top/bottom of the volume wheel, and this may not be a problem at all or it may be a problem only when the shell is fully screwed together.
+
+The bottom side of the headphone jack has electrical contacts (wires) that protrude through the circuit board.  Often the middle one will contact the plastic shell.  You can snip off the wire, snip off the plastic, or do both.
+Completing The Build
+You should now be able to close the shell and test the system.  Consider just putting a couple screws in, as there is a fair chance you will want to reopen it to tweak something.
+
+Boot it up and make sure that the LCD and all the buttons (especially the L/R shoulders) work properly.  To boot the system, hold the power button until you see the green LED light up.  That LED indicates that the operating system has taken over.  The LCD should turn white during the initial bootup, but it will soon change to a splash screen.  You can choose different splash screens (or even videos) in RetroPie’s configuration, but we like the default splash screen for its quick boot.
+
+You can use the MENU / CONFIGURE INPUT option of RetroPie’s EmulationStation to test the buttons, but we don’t recommend saving a new configuration.  Just test them, and then hold the power button to shut the system down.
+
+Once you are comfortable that everything is in place and working, then screw the shell together.  Make sure the LCD is clean, and then install your screen lens that came with your shell.  All the aftermarket screen lenses that we have encountered also come with a thin plastic protector.  You may want to peel that off when you are satisfied with your build.
+
+In the Freeplay Zero/CM3, the power button acts as a hotkey TOGGLE.  Pressing it once (and quickly releasing it) puts the system into hotkey mode.  Pressing any other button then does the hotkey function for that button.  While in hotkey mode, you can press/release the power button to trigger the hotkey button by itself (and return the system to non-hotkey mode).
+
+In Hotkey mode, here are the button mappings.
+SELECT        - Exit emulator (some emulators require START+SELECT)
+X            - Emulator menu (gives access to many functions while pausing emulation)
+B            - Reset (exits some emulators)
+R shoulder        - Save current state to current slot
+L shoulder        - Load state from current slot
+R dpad        - Increment current slot
+L dpad        - Decrement current slot
+Tips, Tricks, FAQs
+Please submit any tips, tricks, or FAQs to feedback@freeplaytech.com
+
+LCD is only White (or only Black)
+The white screen would normally be from one of two things.
+The LCD ribbon cable isn’t properly inserted into the socket/housing and locked down.
+Please see this photo.
+This would sometimes result in a black (non-lit) LCD.
+The SD card/image isn’t properly set up.
+You aren’t using an image file set up for the Freeplay.
+Something went wrong with burning the image to the SD.
+The LCD drivers/software isn’t properly set up on your SD card.
+
+The first thing, if possible, is to just hook the Freeplay Zero up to a HDMI TV/Monitor.  That will narrow it down quite a bit.
+
+If you see video on the monitor, and RetroPie/EmulationStation/Linux boots up, then you know the SD is working.  In this case, it could be a bad LCD ribbon connection or you aren’t using the Freeplay SD card image we provide.
+
+Button/Speaker/Video Testing
+To enter a test sequence on bootup, you can edit /boot/freeplaycfg.txt (even on your PC/Mac) and set FREEPLAYSTARTUP=RUNPY instead of FREEPLAYSTARTUP=EMULATIONSTATION.
+
+Improving a “mushy” GBA D-Pad
+https://gbatemp.net/threads/improving-a-mushy-original-gba-d-pad.468162/
+
+Audio Problems
+The first thing to test when you have audio issues is headphone audio.  Using the headphones, test to see if you have audio in BOTH ears.  If you have audio in only one ear/channel, then this could point to a hardware problem with the FPZ audio components.   If you have audio in both but have no audio from the speaker (when the headphones are disconnected), then the amplifier or the speaker wire itself could be the problem.  If you have audio in neither, then it can be a config.txt problem or a problem with the volume wheel.
+
+If you have any extra pressure on the volume wheel, this can lead to failure of one or both of the audio channels.  You may easily figure this out by just removing the shell/case screw nearest to the volume wheel.  The real fix would be to shave away any plastic adding pressure on the wheel.
+
+No Sound From HDMI TV
+Do you want to play on your nice big TV, but all you get is audio through the built-in speaker of the Freeplay Zero?  Yeah, that’s how it’s designed to work, actually.  Let’s just assure you that there are good reasons for this design choice, and then we can go on to tell you how to switch to HDMI audio whenever you want to.
+
+The simple way to switch is to choose the “RetroPie” menu from the main menu after bootup.  Then select the first option, which is “Audio.”  In there, you can switch to HDMI and then go back to the main menu.  This should switch audio to come out the TV from now on.  Just remember what you did there, because if you grab the Freeplay Zero/CM3 and take it with you, next time you go to play you might not have any audio.  Then you’d need to switch it back.
+
+If you want to be a bit more technical and want something that may (or may not depending on your HDMI hardware) do a bit better autodetecting, you can edit the /boot/config.txt file and change
+hdmi_drive=1           #Normal DVI mode (No sound) (2 for HDMI with sound)
+to
+hdmi_drive=2           #Normal DVI mode (No sound) (2 for HDMI with sound)
+But keep in mind that this can cause video problems on some HDMI monitors (ones without audio built in), so that’s why we keep it at 1 to work on the most setups (and allow you to tweak for your individual needs).
+Have Fun
+Game on!
